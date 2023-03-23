@@ -11,3 +11,10 @@
 ### Styling
 - styled-components 사용
 - 향후 svelte 사용한다면 해당 framework에 맞는 css in js 사용
+### GIT
+- 기본적으로 git-flow를 따르는데, release, hotfix를 따로 두지 않음
+- main: main 브랜치 (release를 따로 두지 않음)
+- feat/: feature 작업 브랜치
+  - main에서 분기, main으로 병합
+- fix/: 버그 픽스 브랜치
+  - main에서 분기, main으로 병합
