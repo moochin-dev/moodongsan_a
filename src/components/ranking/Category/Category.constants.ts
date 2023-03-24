@@ -9,4 +9,4 @@ export enum CATEGORY_NAME {
   RIGHT_OF_SALE = "분양권",
 }
 
-export const categoryValues = Object.values(CATEGORY_NAME);
+export const categoryList = Object.values(CATEGORY_NAME);

@@ -7,4 +7,6 @@ export const DropdownWrapper = styled.div<IDropdownWrapperProps>`
   position: absolute;
   top: 44px;
   left: 0;
+  z-index: 999;
+  background: gray;
 `;

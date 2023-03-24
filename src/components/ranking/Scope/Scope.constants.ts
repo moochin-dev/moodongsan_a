@@ -5,4 +5,4 @@ export enum SCOPE_NAME {
   APARTMENT = "아파트별",
 }
 
-export const scopeValues = Object.values(SCOPE_NAME);
+export const scopeList = Object.values(SCOPE_NAME);
