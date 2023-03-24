@@ -3,7 +3,7 @@
 ---
 ## React를 local 환경에서 실행하는 방법
 ### 준비물
-- node.js LTS 버전 설(https://nodejs.org/en)
+- node.js LTS 버전 설치(https://nodejs.org/en)
 - yarn 설치
   - `npm install -g yarn`
 ### repository 복사
