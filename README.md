@@ -17,7 +17,7 @@
   - yarn install
 - React를 local에서 실행
   - yarn start
-- 브라우저에서 http://localhost:3000/로 이동하여 실행된 React를 확인하기
+- 브라우저에서 http://localhost:3000/ 로 이동하여 실행된 React를 확인하기
 ---
 ## FE
 ### MVP
