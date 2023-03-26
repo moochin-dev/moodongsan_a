@@ -1,17 +1,18 @@
 import { IDropdownWithRadioProps } from "./DropdownWithRadio.types";
-import { IDropdownProps } from "../Dropdown/Dropdown.types";
-import React, { useState } from "react";
+import React from "react";
 import { useDropdown } from "../../../custom-hooks/useDropdown";
-import { IButtonProps } from "../Button/Button.types";
 import { Wrapper, DropdownContentsWrapper } from "./DropdownWithRadio.styles";
 import { Text } from "../Text/Text";
 import { Button } from "../Button/Button";
 import { Dropdown } from "../Dropdown/Dropdown";
+import { useSearchParams } from "react-router-dom";
 
 export const DropdownWithRadio = <T extends React.ReactNode>(
   props: IDropdownWithRadioProps<T>
 ) => {
-  const [state, setState] = useState(props.initialState);
+  const [state, setState] = useSearchParams({
+    [props.paramKey]: props.serialize(props.initialState),
+  });
 
   const {
     buttonRef,
@@ -22,21 +23,10 @@ export const DropdownWithRadio = <T extends React.ReactNode>(
   } = useDropdown();
 
   const handleDropdownContentClick = (value: T) => {
-    if (value !== state) {
-      setState(value);
+    if (value !== props.deserialize(state.get(props.paramKey))) {
+      setState({ [props.paramKey]: props.serialize(value) });
       handleDropdownClose();
     }
-  };
-
-  const buttonProps: IButtonProps = {
-    width: props.buttonWidth,
-    height: props.buttonHeight,
-    onClick: handleButtonClick,
-  };
-
-  const dropdownProps: IDropdownProps = {
-    width: props.dropdownWidth,
-    height: props.dropdownHeight,
   };
 
   const dropdownContent = (
@@ -45,7 +35,7 @@ export const DropdownWithRadio = <T extends React.ReactNode>(
         <label key={index}>
           <input
             type={"radio"}
-            checked={element === state}
+            checked={element === props.deserialize(state.get(props.paramKey))}
             onChange={() => {
               handleDropdownContentClick(element);
             }}
@@ -58,11 +48,27 @@ export const DropdownWithRadio = <T extends React.ReactNode>(
 
   return (
     <Wrapper>
-      <Button ref={buttonRef} {...buttonProps}>
-        <Text>{state}</Text>
+      <Button
+        ref={buttonRef}
+        width={props.buttonWidth}
+        height={props.buttonHeight}
+        onClick={handleButtonClick}
+      >
+        <Text
+          fontSize={props.buttonFontSize}
+          fontWeight={props.buttonFontWeight}
+          lineHeight={props.buttonLineHeight}
+          color={props.buttonFontColor}
+        >
+          {state.get(props.paramKey)}
+        </Text>
       </Button>
       {isDropdownOpen && (
-        <Dropdown ref={dropdownRef} {...dropdownProps}>
+        <Dropdown
+          ref={dropdownRef}
+          width={props.dropdownWidth}
+          height={props.dropdownHeight}
+        >
           {dropdownContent}
         </Dropdown>
       )}
