@@ -21,8 +21,7 @@
 ---
 ## FE
 ### MVP
-- 우선 react로 랭킹 표부터 제공할 수 있게 사이트를 올리고 트래픽 찍어보기
-- mobile-first로 개발 (360px * 800px)
+- mobile-first로 개발 (390px * 844px, iphone 14)
 ### Framework
 - 우선은 react..
 - 추후에 SEO를 위해 Next.js 사용할 의사 있으나, 기왕이면 svelte와 svelte kit 사용해보려 함
@@ -36,3 +35,61 @@
   - main에서 분기, main으로 병합
 - fix/: 버그 픽스 브랜치
   - main에서 분기, main으로 병합
+---
+## 페이지 구조
+- root ( / )
+  - 랭킹 ( ranking )
+      - 평당가 ( price-per-area )
+          - 시별 ( city )
+          - 구별 ( district )
+          - 동별 ( dong )
+          - 아파트별 ( apartment )
+      - 매매가 ( sale-price )
+          - 아파트별 ( apartment )
+      - 상승률 ( rise-rate )
+          - 시별 ( city )
+          - 구별 ( district )
+          - 동별 ( dong )
+          - 아파트별 ( apartment )
+      - 상승액 ( rise-price )
+          - 시별 ( city )
+          - 구별 ( district )
+          - 동별 ( dong )
+          - 아파트별 ( apartment )
+      - 전세가율 ( jeonse-rate )
+          - 시별 ( city )
+          - 구별 ( district )
+          - 동별 ( dong )
+          - 아파트별 ( apartment )
+      - 거래량 ( trading-volume )
+          - 시별 ( city )
+          - 구별 ( district )
+          - 동별 ( dong )
+          - 아파트별 ( apartment )
+      - 미분양 ( unsold )
+          - 시별 ( city )
+          - 구별 ( district )
+      - 분양권 ( right-of-sale )
+          - 시별 ( city )
+          - 구별 ( district )
+          - 동별 ( dong )
+          - 아파트별 ( apartment )
+  - 차트 ( chart )
+      - 평당가 ( price-per-area )
+          - 시별 ( city )
+          - 구별 ( district )
+          - 동별 ( dong )
+      - 전세가율 ( jeonse-rate )
+          - 시별 ( city )
+          - 구별 ( district )
+          - 동별 ( dong )
+          - 아파트별 ( apartment )
+      - 거래량 ( trading-volume )
+          - 시별 ( city )
+          - 구별 ( district )
+          - 동별 ( dong )
+          - 아파트별 ( apartment )
+      - 미분양 ( unsold )
+          - 시별 ( city )
+          - 구별 ( district )
+  - 찾기 ( find )
