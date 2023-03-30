@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const PageWrapper = styled.div`
-  padding-left: 8px;
-  padding-right: 8px;
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
+  width: 100vw;
+  height: 100vh;
 `;

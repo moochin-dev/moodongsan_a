@@ -1,26 +1,19 @@
-import { FiltersWrapper } from "./Ranking.styles";
-import { Category } from "../../components/ranking/Category/Category";
 import React from "react";
-import { Scope } from "../../components/ranking/Scope/Scope";
-import { Trade } from "../../components/ranking/Trade/Trade";
-import { SortOrder } from "../../components/ranking/SortOrder/SortOrder";
-import { Average } from "../../components/ranking/Average/Average";
+import { NavBar } from "../../components/common/NavBar/NavBar";
+import { Filters } from "../../components/common/Filters/Filters";
+import { Contents } from "../../components/common/Contents/Contents";
 import { Page } from "../../components/common/Page/Page";
+
+const selectedFilters = ["평당가", "시별", "매매", "이 달 평균", "저렴한 순"];
 
 export const Ranking = () => {
   return (
     <Page>
-      <FiltersWrapper>
-        <div>
-          <Category />
-          <Scope />
-        </div>
-        <div>
-          <Trade />
-          <SortOrder />
-          <Average />
-        </div>
-      </FiltersWrapper>
+      <Filters selectedFilters={selectedFilters} />
+      <Contents>
+        <div></div>
+      </Contents>
+      <NavBar />
     </Page>
   );
 };
